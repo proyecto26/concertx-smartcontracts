@@ -1,2 +1,1 @@
-# concertx-smartcontracts
-Smart Contracts for ConcertX
+# Smart Contracts for ConcertX
