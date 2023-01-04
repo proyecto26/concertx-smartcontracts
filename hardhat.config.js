@@ -11,10 +11,10 @@ const PRIVATE_KEY =
 module.exports = {
   solidity: "0.8.17",
   paths: {
-    artifacts: "./src/smartcontracts-solidity/artifacts",
-    sources: "./src/smartcontracts-solidity/contracts",
-    cache: "./src/smartcontracts-solidity/cache",
-    tests: "./src/smartcontracts-solidity/test"
+    artifacts: "./src/solidity/artifacts",
+    sources: "./src/solidity/contracts",
+    cache: "./src/solidity/cache",
+    tests: "./src/solidity/test"
     },
   defaultNetwork: 'hardhat',
   networks: {
