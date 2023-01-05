@@ -26,8 +26,8 @@ $ npx hardhat node
 
 Note: due to an existing error between MetaMask and hardhat, the chainId must be passed manually. By default it does not take it, since both are different. See more here: 
 
-MetaMask [error](https://github.com/MetaMask/metamask-extension/issues/10290)
-Hardhat [solution](https://github.com/NomicFoundation/hardhat-boilerplate/blob/master/hardhat.config.js#L13)
+- MetaMask [error](https://github.com/MetaMask/metamask-extension/issues/10290)
+- Hardhat [solution](https://github.com/NomicFoundation/hardhat-boilerplate/blob/master/hardhat.config.js#L13)
 
 ## To interact with a live or test network, you'll need:
 
