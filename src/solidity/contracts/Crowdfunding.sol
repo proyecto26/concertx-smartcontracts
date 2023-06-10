@@ -1,4 +1,4 @@
-    // SPDX-License-Identifier: MIT
+// SPDX-License-Identifier: MIT
 pragma solidity ^0.8.18;
 
 contract Crowdfunding {
@@ -7,6 +7,14 @@ contract Crowdfunding {
     uint256 public goal;
     uint256 public deadline;
     bool public closed;
+    address[] private contributors;
+    uint256 public campaignId;
+
+    event ContributionReceived(
+        address contributor,
+        uint256 campaignId,
+        uint256 amount
+    );
 
     constructor() {
         owner = payable(msg.sender);
@@ -27,6 +35,7 @@ contract Crowdfunding {
         entrepreneur = payable(msg.sender);
         goal = _goal;
         deadline = block.timestamp + (_durationInMonths * 30 days);
+        closed = false; // Inicializar closed como falso al crear la campaña
     }
 
     function extendDeadline() public {
@@ -36,7 +45,7 @@ contract Crowdfunding {
         );
         require(
             msg.sender == entrepreneur,
-            "Only the enterepreneur can extend the deadline"
+            "Only the entrepreneur can extend the deadline"
         );
         require(!closed, "The campaign has been closed");
         require(
@@ -45,5 +54,24 @@ contract Crowdfunding {
         );
 
         deadline += 15 days;
+    }
+
+    function closeCampaign() public {
+        require(
+            entrepreneur != address(0),
+            "The campaign must first be created"
+        );
+        require(!closed, "The campaign has already been closed");
+
+        closed = true;
+    }
+
+    // Internal functions
+    function _addContributor(address contributor) internal {
+        contributors.push(contributor);
+    }
+
+    function getEntrepreneur() public view returns (address payable) {
+        return entrepreneur;
     }
 }
