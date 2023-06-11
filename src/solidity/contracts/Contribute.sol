@@ -7,7 +7,7 @@ contract Contribute {
     Crowdfunding public crowdfundingContract;
     mapping(address => uint256) public contributions;
     bool public closed;
-    uint256 public totalRaised; // Variable para almacenar el monto total recaudado
+    uint256 public totalRaised; // Variable to store the total amount collected
     address payable public entrepreneur;
 
     constructor(address _crowdfundingContract) {
